@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(199, 199, 199);
+}
+
 header {
     width: 100%;
     height: 3.5em;
-    position: absolute;
+    position: fixed;
     z-index: 10;
 }
 
@@ -18,6 +22,7 @@ header {
     align-items: center;
     gap: 4.5em;
     padding-left: 10em;
+    
 }
 
 .header-link > a {
@@ -45,10 +50,14 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: .7em;
+    gap: .5em;
     z-index: 6;
     position: absolute;
-    font-size: 1.8vw;
+    font-size: 1.9vw;
+}
+
+.topo-txt > h2 {
+    font-size: 2vw;
 }
 
 .topo-fundo {
@@ -75,8 +84,7 @@ header {
     height: 5em;
     display: flex;
     align-items: end;
-    justify-content: center;
-    gap: 7vw;
+    justify-content: space-around;
     position: relative;
     margin-top: -6em;
     z-index: 10;
@@ -93,11 +101,12 @@ header {
     justify-content: center;
     gap: 15px;
     box-shadow: 0px 4px 10px black;
+    transition: 0.5s;
+
 }
 
 .sobre-container:hover {
     transform: scale(1.05);
-    transition: 0.5s;
 }
 
 .sobre-txt {
@@ -114,6 +123,77 @@ header {
     display: flex;
     justify-content: center;
     
+}
+
+.section-imagens {
+    width: 100%;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5em;
+    overflow-x: hidden;
+}
+
+.container-img {
+    display: flex;
+    gap: 2.5em;
+    animation: fotos 37s linear infinite;
+}
+
+@keyframes fotos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * (17em * 7 + 2.5em * 6)));
+    }
+}
+
+.container-img:hover {
+    animation-play-state: paused;
+}
+
+.img-item {
+    width: 17em;
+    height: 17em;
+    background-color: black;
+    transition: 0.7s;
+}
+
+.img-item:hover {
+    transform: scale(1.15);
+}
+
+.orcamento {
+    width: 100%;
+    height: 22em;
+    background-image: url(img/Tecnicos-fazendo-manutenção.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.orcamento, .orcamento-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.orcamento-txt {
+    background-color: rgba(128, 128, 128, 0.568);
+    width: 27em;
+    height: 12em;
+    border-radius: 30px;
+    border: 3px solid gray;
+    text-align: center;
+    line-height: 2em;
+    font-size: 2vw;
+    color: white;
+    text-shadow: 0px 2px 7px black;
+
 }
 
 .servicos {
@@ -155,68 +235,40 @@ header {
     align-items: center;
 }
 
-.servicos-item-manutencao > img {
-    object-fit: cover;
-    padding-bottom: 1.5em;
-    width: 11em;
-    height: 5em;
-}  
-
-.orcamento {
-    width: 100%;
-    height: 17em;
-    background-color: tan;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 2.5em;
-    text-align: center;
-}
-
-.section-imagens {
-    width: 100%;
-    height: 22em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5em;
-    padding: 2.5em 0 0em 0;
-}
-
-.container-img {
-    display: flex;
-    gap: 2.5em;
-}
-
-.img-item {
-    width: 12em;
-    height: 12em;
-    background-color: black;
-}
-
 .quem-somos {
     width: 100%;
     height: 20em;
     display: flex;
-    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
     margin: 5em 0;
 }
 
+.container-quem-somos {
+    background-color: white;
+    width: 90%;
+    height: 100%;
+    border-radius: 10px 100px 10px 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 5em;
+}
+
 .quem-somos-img {
-    width: 25em;
+    width: 50%;
     height: 100%;
     background-image: url(img/segurando-manometros-de-perto_agem-DC-Studio-Freepika.jpg);
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
 }
 
 .quem-somos-txt {
     width: 100%;
     height: 100%;
     text-align: center;
-    margin-top: 2em;
+    margin-top: 5em;
     padding: 0 2.5em;
     display: flex;
     flex-direction: column;
@@ -224,7 +276,78 @@ header {
 }
 
 footer {
-    background-color: wheat;
+    background-color: rgb(95, 95, 95);
     width: 100%;
-    height: 10em;
+    height: 15em;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2em;
+    position: relative;
+}
+
+.logo {
+    width: 5em;
+    height: 5em;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.cartao {
+    grid-column: 3 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.cartao-icones > img{
+    width: 2em;
+    height: 2em;
+    object-fit: contain;
+}
+
+.btn-whatsapp {
+    grid-column: 2 / 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.btn-whatsapp > a > img {
+    width: 3em;
+    height: 3em;
+    background-color: white;
+}
+
+.copy {
+    grid-column: 1 / 4;
+    grid-row: 2 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.copy:first-child:after {
+    border: 1px solid white;
+}
+
+.tecnico {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.tecnico > img{
+    width: 8em;
+    margin-right: 1em;
 }
